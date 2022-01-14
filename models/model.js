@@ -11,4 +11,4 @@ const Users = sequelize.define('users',{
     phoneNumber:{type:DataTypes.STRING},
     email:{type:DataTypes.STRING}
 })
-module.exports = {Events};
+module.exports = {Events,Users};
