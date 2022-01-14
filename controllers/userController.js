@@ -9,5 +9,6 @@ class UserController{
         const users = await Users.findAll()
         return res.json(users)
     }
+
 }
 module.exports = new UserController()
