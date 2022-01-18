@@ -1,5 +1,6 @@
 const sequelize = require('../db');
 const {DataTypes} = require('sequelize');
+const queryInterface = sequelize.getQueryInterface();
 
 const Events = sequelize.define('events',{
     id:{type:DataTypes.INTEGER,primaryKey:true,autoIncrement:true},
