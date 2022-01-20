@@ -1,13 +1,14 @@
-const {Event} = require('../models/model')
+const {Event,Departments} = require('../models/model');
+const eventService = require('../services/eventService')
 class EventController{
     async getEvents (req,res) {
         const events = await Event.findAll()
         return res.json(events)
     }
     async createEvents (req,res) {
-        const {type} = req.body;
-        const event = await Event.create({type})
-        return res.json(event)
+        const {name,id} = req.body;
+        const createdEvent = await eventService.createEvent(id,name)
+        return res.json(createdEvent)
     }
 }
 
