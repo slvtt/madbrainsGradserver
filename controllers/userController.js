@@ -2,8 +2,8 @@ const UserService = require('../services/userService')
 
 class UserController{
     async createUser(req,res) {
-        const {phoneNumber,email,address} = req.body;
-        const user = await UserService.createUser({phoneNumber,email,address})
+        const {email,region} = req.body;
+        const user = await UserService.createUser({email,region})
         return res.json(user)
     }
     async getUsers(req,res){
