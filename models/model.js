@@ -24,8 +24,8 @@ const Push = sequelize.define('push',{
     region:{type:DataTypes.STRING}
 })
 
-Departments.hasMany(Event)
-Event.belongsTo(Departments)
+Departments.hasMany(Event, { onDelete: 'CASCADE' })
+Event.belongsTo(Departments,{ onDelete: 'CASCADE' })
 
 Event.hasOne(Push)
 Push.belongsTo(Event)

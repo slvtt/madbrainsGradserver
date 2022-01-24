@@ -33,6 +33,15 @@ class DepartmentController {
             res.status(500).json({message:'Непредвиденная ошибка(((('})
         }
     }
+    async deleteDepartment(req,res){
+        try {
+            const {departmentName} = req.body
+            const deletedDepartment = await Departments.destroy({where:{name:departmentName}})
+            return res.json(deletedDepartment)
+        }catch (e){
+            console.log(e)
+        }
+    }
 }
 
 module.exports = new DepartmentController();

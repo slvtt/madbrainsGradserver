@@ -27,17 +27,13 @@ class PushService {
         } else {
             const createdPush = await Push.create({description,region,eventId})
             const PushId = createdPush.dataValues.id;
-            await Users.findAll({where: {
-                region:region
-            }
-            })
+            await Users.findAll({where: {region:region}})
                 .then(users => users.map(
                     user => user.update(
                         {pushId:PushId},
                         {where: {pushId:PushId - 1 || null || PushId !== pushId}}
                     )
                 ))
-
             return createdPush
         }
     }
