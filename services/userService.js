@@ -8,7 +8,7 @@ class UserService {
         const message = {
             to:`${userEmail}`,
             subject:'Успешная регистрация на рассылку оповещений',
-            text:'sdfafdsaffsdafdsadfsa'
+            text:`Вы были зарегестрированы на рассылку оповещений о ЧС и ЧП в городе Ульяновск по региону ${43+44}`
         }
         mailer(message)
         return createdUser
@@ -28,4 +28,5 @@ class UserService {
         return address
     }
 }
+
 module.exports = new UserService();

@@ -37,6 +37,14 @@ class PushService {
             return createdPush
         }
     }
+
+    async getLatestPush(){
+        const latestPush = await Push.findAll({
+            limit:1,
+            order:[['createdAt', 'DESC']]
+        })
+        return latestPush
+    }
 }
 
 module.exports = new PushService();
